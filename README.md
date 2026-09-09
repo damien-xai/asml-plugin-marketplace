@@ -18,14 +18,14 @@ Six first-party plugins, all prefixed `asml-`, covering distinct coding use case
 | [`asml-fab-integration`](plugins/asml-fab-integration) | SECS/GEM, GEM300, and HSMS fab-host integration | deployment |
 | [`asml-test-diagnostics`](plugins/asml-test-diagnostics) | Calibration, diagnostics, and HIL/SIL test automation | development |
 
-Add this marketplace, then install a plugin:
+This catalog is an **additional** marketplace. Keep the xAI sources (`xAI Official` and `xai-plugin-marketplace`); add this one beside them.
 
 ```bash
 grok plugin marketplace add damien-xai/asml-plugin-marketplace
 grok plugin install asml-embedded-control@damien-xai/asml-plugin-marketplace --trust
 ```
 
-Or browse it in Grok Build with `/marketplace`.
+Pin the `@damien-xai/asml-plugin-marketplace` qualifier so Grok does not confuse these plugins with anything in the xAI catalogs. Browse both marketplaces in Grok Build with `/marketplace`.
 
 ## Repo layout
 
