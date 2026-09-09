@@ -1,9 +1,28 @@
-# xAI Plugin Marketplace
+# ASML Plugin Marketplace
 
-The official catalog of plugins for Grok Build. This repo is an index that points at plugin sources so Grok Build can browse, install, and update them.
+A Grok Build marketplace of **mocked** plugins for ASML lithography software engineering. This repo is an index plus vendored plugin sources so Grok Build can browse, install, and update them.
 
-> [!WARNING]
-> Third-party plugins listed here or other third-party materials are solely developed or provided by their respective authors, not xAI. xAI does not author, control, endorse, or verify third-party plugins or materials, makes no guarantees about their security, functionality, fitness, content, outputs, or data practices for any purpose, and disclaims all liability for any damages, losses, claims, or harms related to your use of any third-party plugins or materials. xAI provides plugins or materials AS-IS, without any express or implied warranties, and plugins or materials may execute code and access data on your system — install and use them at your own risk. Each plugin is governed by its own license and terms. xAI has its own [Terms of Service](https://x.ai/legal/terms-of-service) and [Privacy Policy](https://x.ai/legal/privacy-policy).
+> [!NOTE]
+> Every plugin in this catalog is a **mock** for demonstration and internal prototyping. None of them connect to ASML production scanners, fabs, or corporate systems. APIs, type names, and sample data are fictional. They are not official ASML products.
+
+## Plugins
+
+Six first-party plugins, all prefixed `asml-`, covering distinct coding use cases:
+
+| Plugin | Use case | Category |
+|---|---|---|
+| [`asml-embedded-control`](plugins/asml-embedded-control) | Real-time C++ for TWINSCAN NXE/EXE machine control and mechatronics | development |
+| [`asml-computational-litho`](plugins/asml-computational-litho) | OPC, inverse lithography (ILT), and source-mask optimization (SMO) | development |
+| [`asml-metrology`](plugins/asml-metrology) | Overlay, CD, focus, and EPE analysis plus wafer-map reporting | monitoring |
+| [`asml-litho-insight`](plugins/asml-litho-insight) | Holistic lithography APC — Litho InSight-style process-control apps | development |
+| [`asml-fab-integration`](plugins/asml-fab-integration) | SECS/GEM, GEM300, and HSMS fab-host integration | deployment |
+| [`asml-test-diagnostics`](plugins/asml-test-diagnostics) | Calibration, diagnostics, and HIL/SIL test automation | development |
+
+Install from Grok Build with `/marketplace`, or:
+
+```bash
+grok plugin install asml-embedded-control --trust
+```
 
 ## Repo layout
 
@@ -11,12 +30,12 @@ The official catalog of plugins for Grok Build. This repo is an index that point
 |---|---|
 | `.grok-plugin/marketplace.json` | The catalog index — the source of truth |
 | `.grok-plugin/plugin-index.json` | Generated component catalog — never hand-edit |
-| `plugins/` | First-party plugins owned and maintained by xAI |
-| `external_plugins/` | Third-party plugins |
+| `plugins/` | First-party ASML plugins vendored in this repo |
+| `external_plugins/` | Third-party plugins (none in this catalog) |
 
 Every plugin must have a corresponding entry in `.grok-plugin/marketplace.json`. A plugin's ownership determines where it lives:
 
-- **First-party** (`plugins/`) — plugins authored and maintained by xAI, vendored in this repo.
+- **First-party** (`plugins/`) — plugins authored for this ASML catalog, vendored in this repo.
 - **Third-party** (`external_plugins/`) — plugins owned by an external party. Vendor a local copy here, or reference the upstream repo directly with a remote source (see below).
 
 ## What a plugin is
@@ -40,9 +59,9 @@ An optional `plugin.json` manifest adds metadata or overrides component paths.
 
 ```json
 {
-  "name": "my-marketplace",
-  "description": "Short description of this marketplace",
-  "owner": { "name": "My Org" },
+  "name": "asml-marketplace",
+  "description": "ASML plugin marketplace for Grok Build",
+  "owner": { "name": "ASML" },
   "plugins": []
 }
 ```
@@ -86,10 +105,12 @@ Both source types are just an entry appended to the `plugins` array in `.grok-pl
 
 ```json
 {
-  "name": "my-plugin",
-  "source": { "type": "local", "path": "./plugins/my-plugin" }
+  "name": "asml-embedded-control",
+  "source": { "type": "local", "path": "./plugins/asml-embedded-control" }
 }
 ```
+
+The six ASML plugins in this catalog are all local sources.
 
 ### SHA pinning (required for remote sources)
 

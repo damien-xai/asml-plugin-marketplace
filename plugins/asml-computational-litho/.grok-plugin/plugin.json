@@ -1,0 +1,12 @@
+{
+  "name": "asml-computational-litho",
+  "version": "0.1.0",
+  "description": "Mock computational lithography plugin for OPC, ILT, and source-mask optimization.",
+  "author": {
+    "name": "ASML",
+    "url": "https://www.asml.com"
+  },
+  "homepage": "https://www.asml.com/technology/software",
+  "license": "MIT",
+  "keywords": ["asml", "opc", "ilt", "smo", "computational-lithography"]
+}

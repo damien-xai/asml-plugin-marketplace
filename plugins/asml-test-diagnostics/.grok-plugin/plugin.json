@@ -1,0 +1,12 @@
+{
+  "name": "asml-test-diagnostics",
+  "version": "0.1.0",
+  "description": "Mock calibration, diagnostics, and HIL/SIL test plugin for ASML scanners.",
+  "author": {
+    "name": "ASML",
+    "url": "https://www.asml.com"
+  },
+  "homepage": "https://www.asml.com/technology/software",
+  "license": "MIT",
+  "keywords": ["asml", "diagnostics", "calibration", "hil", "test-automation"]
+}

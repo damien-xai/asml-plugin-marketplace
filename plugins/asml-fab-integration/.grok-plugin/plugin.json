@@ -1,0 +1,12 @@
+{
+  "name": "asml-fab-integration",
+  "version": "0.1.0",
+  "description": "Mock SECS/GEM, GEM300, and HSMS fab-host integration plugin for ASML scanners.",
+  "author": {
+    "name": "ASML",
+    "url": "https://www.asml.com"
+  },
+  "homepage": "https://www.asml.com/technology/software",
+  "license": "MIT",
+  "keywords": ["asml", "secs-gem", "gem300", "hsms", "fab-host"]
+}

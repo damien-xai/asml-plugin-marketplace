@@ -1,0 +1,12 @@
+{
+  "name": "asml-litho-insight",
+  "version": "0.1.0",
+  "description": "Mock holistic lithography APC plugin in the Litho InSight style.",
+  "author": {
+    "name": "ASML",
+    "url": "https://www.asml.com"
+  },
+  "homepage": "https://www.asml.com/technology/software",
+  "license": "MIT",
+  "keywords": ["asml", "litho-insight", "apc", "holistic-lithography"]
+}

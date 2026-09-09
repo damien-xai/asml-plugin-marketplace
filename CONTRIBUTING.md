@@ -1,6 +1,6 @@
 # Contributing a plugin
 
-Thanks for submitting to the xAI plugin marketplace. This repo is an **index**: a PR doesn't ship a
+Thanks for submitting to the ASML plugin marketplace. This repo is an **index**: a PR doesn't ship a
 product, it adds one entry to `.grok-plugin/marketplace.json` that points Grok Build at your
 plugin's source. This guide covers how to submit, what we check, and the mistakes that most often
 send a PR back.
@@ -11,10 +11,11 @@ For the catalog schema, source types, and SHA pinning mechanics, read the [READM
 ## Before you start
 
 - **Only submit a plugin you own or have the right to distribute.** Each plugin is governed by its
-  own license. xAI does not author or verify third-party plugins (see the disclaimer in the
-  [README](README.md)).
+  own license.
 - **Plugins execute code on a user's machine.** That's exactly why review is strict — see
   [Security expectations](#security-expectations).
+- **Mocks stay mocks.** Do not point MCP servers, hooks, or skills at production ASML scanners,
+  fabs, or corporate endpoints.
 
 ## Submit in 6 steps
 
@@ -22,8 +23,9 @@ For the catalog schema, source types, and SHA pinning mechanics, read the [READM
 2. **Add your catalog entry** to `.grok-plugin/marketplace.json`:
    - **Remote source (recommended for third-party):** point `source.url` at your public repo and
      pin a full commit `sha`. Nothing else is vendored here.
-   - **Local source:** vendor your files under `external_plugins/<name>/` (third-party) and set
-     `source` to `{ "type": "local", "path": "./external_plugins/<name>" }`.
+   - **Local source:** vendor your files under `plugins/<name>/` (first-party) or
+     `external_plugins/<name>/` (third-party) and set `source` to
+     `{ "type": "local", "path": "./plugins/<name>" }`.
 3. **Pin the SHA** (remote only) — get it with:
    ```bash
    git ls-remote https://github.com/<your-org>/<your-repo>.git HEAD
@@ -42,6 +44,7 @@ For the catalog schema, source types, and SHA pinning mechanics, read the [READM
 ## Requirements checklist
 
 - [ ] One entry added to `.grok-plugin/marketplace.json`, valid JSON, `name` in kebab-case and unique.
+- [ ] First-party plugin ids use the `asml-` prefix.
 - [ ] Remote sources pin a full 40-char lowercase commit `sha`; the commit is public and reachable.
 - [ ] `.grok-plugin/plugin-index.json` regenerated and committed (CI fails if stale).
 - [ ] A `homepage` and a clear `description`; brand-scoped `keywords`/`domains` (not generic terms — they power the plugin CTA) and a `category` where it helps discovery.
@@ -51,10 +54,8 @@ For the catalog schema, source types, and SHA pinning mechanics, read the [READM
 
 ## Tips for a clean submission
 
-- **Source from your official org, not a personal account.** A branded plugin (`acme`) sourced from
-  `some-personal-account/acme-thing` reads as a possible impersonation and *will* be questioned.
-  Publishing the source under your real org (`acme/...`) makes first-party ownership verifiable at a
-  glance and is the single biggest thing that speeds up review.
+- **Source from your official org, not a personal account.** A branded plugin (`asml-…`) sourced from
+  `some-personal-account/asml-thing` reads as a possible impersonation and *will* be questioned.
 - **Keep the pinned commit reachable.** Index generation and CI fetch your pinned `sha`; if the repo
   is private, the commit is force-pushed away, or the repo is deleted, the build fails loudly.
 - **Pin a real commit, not a branch or tag.** `main`, `v1.2.3`, and abbreviated SHAs are rejected by
@@ -64,7 +65,7 @@ For the catalog schema, source types, and SHA pinning mechanics, read the [READM
 - **Keep `keywords` and `domains` brand-scoped.** They power Grok Build's plugin **CTA** — the
   prompt that proactively suggests your plugin — so generic terms like `postgres`, `database`,
   `api`, `cli`, or `deploy` get pushed back: they'd mis-fire the CTA on unrelated requests. Use
-  specific, product-scoped terms (e.g. `neon`, `neon postgres`, `neon branch`) and only the
+  specific, product-scoped terms (e.g. `asml nxe`, `asml opc`, `asml yieldstar`) and only the
   `domains` your product actually owns.
 - **To update a live plugin,** bump the `sha` (remote) or commit the changed files (local) and
   regenerate the index — don't open a parallel duplicate entry.
@@ -82,6 +83,7 @@ following will be rejected or sent back:
   or a shell-exec MCP server when a scoped tool would do.
 - **Obfuscation:** base64/hex payload blobs, minified bundles with no source, or typosquatted deps.
 - **Prompt injection** planted in `SKILL.md` or descriptions aimed at the installing agent.
+- **Live production endpoints** for ASML scanners, fab hosts, or internal services.
 
 Declare any network endpoints your plugin calls and the credentials it needs, in your README — it
 makes review faster and builds trust.
