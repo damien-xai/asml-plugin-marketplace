@@ -18,6 +18,12 @@ This plugin does **not** talk to a scanner. Types, cycle budgets, and module nam
 | Skill | `asml-motion-safety` | Watchdogs, interlocks, and fail-safe actuator commands |
 | Command | `/asml-control-module` | Scaffold a mechatronic control module |
 | Agent | `asml-rt-reviewer` | Review a diff for real-time violations |
+| Script | `scripts/mock_cycle.py` | Print one mocked 1 ms cycle (optional injected fault) |
+
+```bash
+python3 scripts/mock_cycle.py
+python3 scripts/mock_cycle.py --inject-fault missed-heartbeat
+```
 
 ## Languages
 

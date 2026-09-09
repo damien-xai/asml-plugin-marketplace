@@ -55,7 +55,7 @@ Do not add new ECs without naming them in the equipment model first.
 - One outstanding primary message at a time per session. No pipelining unless the existing stack already supports it.
 - Timeouts are explicit (default 45 s T3). Never block a UI thread on HSMS.
 - Alarms are events + a sticky list. Clearing an alarm is a separate operator/host action.
-- Use the mock MCP (`get_equipment_status`, `list_recipes`, `send_s2f41`) for canned traffic.
+- For canned traffic, from this plugin's root run `python3 scripts/mock_fab.py status`, `recipes`, or `s2f41 START`.
 
 ## Sample S2F41
 

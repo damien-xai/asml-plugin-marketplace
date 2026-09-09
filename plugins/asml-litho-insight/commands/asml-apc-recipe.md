@@ -13,4 +13,4 @@ Emit:
 2. A small `Control` function (Java if the repo is Java, else Python) that applies gain + clamps + hold.
 3. An audit-log record shape: `lot_id`, `knobs_before`, `knobs_after`, `residual_3sigma_nm`, `held`.
 
-Mark everything mock. Do not add a network client to a scanner or Litho InSight service.
+Run `python3 scripts/mock_apc.py --lot LOT-7781` from this plugin's root and attach the canned before/after knobs. Mark everything mock. Do not add a network client to a scanner or Litho InSight service.

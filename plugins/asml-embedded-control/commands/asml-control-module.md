@@ -13,3 +13,5 @@ Ask for the axis/module name if missing (e.g. wafer-stage X, reticle-stage Y, wa
 4. A unit test that runs one 1 ms cycle with a fake device (no hardware).
 
 Match the surrounding repo's build system. If none exists, emit a single `.hpp` / `.cpp` / `_test.cpp` trio. Mark types as mock.
+
+Run `python3 scripts/mock_cycle.py` (and `--inject-fault missed-heartbeat`) from this plugin's root so the test has a canned 1 ms sample to assert against.

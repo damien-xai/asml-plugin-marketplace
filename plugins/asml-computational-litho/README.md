@@ -2,7 +2,7 @@
 
 Mock Grok Build plugin for **computational lithography**: optical proximity correction (OPC), inverse lithography technology (ILT), and source-mask optimization (SMO).
 
-The bundled MCP server is a local stdio stub that returns canned process-window and job data. It does not submit jobs to a compute cluster or touch a real mask database.
+Canned job, process-window, and ILT data come from `scripts/mock_litho.py`. Nothing is submitted to a compute cluster.
 
 ## Use when
 
@@ -17,7 +17,13 @@ The bundled MCP server is a local stdio stub that returns canned process-window 
 | Skill | `asml-computational-litho` | OPC / ILT / SMO job setup and HPC patterns |
 | Skill | `asml-mask-model` | Mask-3D and resist-model fidelity choices |
 | Command | `/asml-opc-job` | Scaffold a mocked OPC/ILT job spec |
-| MCP | `asml-computational-litho` | Canned `list_opc_jobs`, `get_process_window`, `preview_ilt` |
+| Script | `scripts/mock_litho.py` | Print canned jobs, process windows, ILT previews |
+
+```bash
+python3 scripts/mock_litho.py list-jobs --layer M1
+python3 scripts/mock_litho.py process-window --layer M1
+python3 scripts/mock_litho.py preview-ilt --layer VIA1
+```
 
 ## Languages
 

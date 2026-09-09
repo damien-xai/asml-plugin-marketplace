@@ -17,6 +17,12 @@ Java is the usual customer-facing stack for this class of app at ASML; Python is
 | Skill | `asml-litho-insight` | APC loop design, knobs, and application structure |
 | Command | `/asml-apc-recipe` | Scaffold a lot-to-lot control recipe |
 | Agent | `asml-apc-designer` | Propose a control loop from a stated patterning problem |
+| Script | `scripts/mock_apc.py` | Apply one mocked lot-to-lot APC step |
+
+```bash
+python3 scripts/mock_apc.py --lot LOT-7781
+python3 scripts/mock_apc.py --quality-fail
+```
 
 ## Related plugins
 

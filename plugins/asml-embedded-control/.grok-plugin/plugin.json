@@ -1,6 +1,6 @@
 {
   "name": "asml-embedded-control",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Mock real-time C++ machine-control plugin for TWINSCAN NXE/EXE scanners.",
   "author": {
     "name": "ASML"

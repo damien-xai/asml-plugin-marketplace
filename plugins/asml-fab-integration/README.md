@@ -2,7 +2,7 @@
 
 Mock Grok Build plugin for **fab host integration** of ASML scanners: SECS/GEM (SEMI E5/E30), GEM300 (E40/E87/E90/E94), and HSMS (E37).
 
-The MCP server is a local stdio stub. It does not open a TCP session to a tool or fab host.
+Canned equipment status, recipes, and S2F41 acks come from `scripts/mock_fab.py`. No TCP session is opened.
 
 ## Use when
 
@@ -16,7 +16,14 @@ The MCP server is a local stdio stub. It does not open a TCP session to a tool o
 |---|---|---|
 | Skill | `asml-fab-integration` | SECS/GEM + GEM300 coding conventions |
 | Command | `/asml-gem-session` | Scaffold a mocked GEM session + S2F41 remote command |
-| MCP | `asml-fab-host` | Canned `get_equipment_status`, `list_recipes`, `send_s2f41` |
+| Script | `scripts/mock_fab.py` | Print canned status, recipes, and S2F41 HCACK |
+
+```bash
+python3 scripts/mock_fab.py status
+python3 scripts/mock_fab.py recipes
+python3 scripts/mock_fab.py s2f41 START
+python3 scripts/mock_fab.py s2f41 PP-SELECT --ppid VIA1-ENG-002
+```
 
 ## Languages
 

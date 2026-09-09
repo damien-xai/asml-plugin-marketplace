@@ -9,7 +9,7 @@ description: >
 
 # ASML computational lithography
 
-Mock skill. Job specs and MCP tools return canned data. Do not claim a real mask was corrected.
+Mock skill. Job specs and `scripts/mock_litho.py` return canned data. Do not claim a real mask was corrected.
 
 ## Pick a method
 
@@ -48,6 +48,14 @@ Load `asml-mask-model` before changing `mask3d` or `resist`.
 - Seed RNG and record `tool`, `na`, `method`, and model hashes in the result sidecar.
 - Treat dose as percent from nominal and focus in nm. Overlay belongs in the process-window consumer, not inside the OPC kernel.
 
-## Using the mock MCP
+## Canned data
 
-Call `list_opc_jobs`, `get_process_window`, and `preview_ilt` for canned examples. If MCP is unavailable, use the sample payload in those tool descriptions — do not invent live cluster output.
+From this plugin's root (parent of `skills/`), run:
+
+```bash
+python3 scripts/mock_litho.py list-jobs --layer M1
+python3 scripts/mock_litho.py process-window --layer M1
+python3 scripts/mock_litho.py preview-ilt --layer VIA1
+```
+
+Use that JSON. Do not invent live cluster output.

@@ -2,18 +2,12 @@
   "version": 1,
   "plugins": {
     "asml-computational-litho": {
-      "version": "0.1.0",
+      "version": "0.2.0",
       "components": {
         "commands": [
           {
             "name": "asml-opc-job",
             "description": "Scaffold a mocked OPC, ILT, or SMO job spec for an ASML computational lithography layer."
-          }
-        ],
-        "mcpServers": [
-          {
-            "name": "asml-computational-litho",
-            "description": "stdio"
           }
         ],
         "skills": [
@@ -29,7 +23,7 @@
       }
     },
     "asml-embedded-control": {
-      "version": "0.1.0",
+      "version": "0.2.0",
       "components": {
         "agents": [
           {
@@ -56,18 +50,12 @@
       }
     },
     "asml-fab-integration": {
-      "version": "0.1.0",
+      "version": "0.2.0",
       "components": {
         "commands": [
           {
             "name": "asml-gem-session",
             "description": "Scaffold a mocked SECS/GEM session with equipment status, recipe select, and S2F41 START."
-          }
-        ],
-        "mcpServers": [
-          {
-            "name": "asml-fab-host",
-            "description": "stdio"
           }
         ],
         "skills": [
@@ -79,7 +67,7 @@
       }
     },
     "asml-litho-insight": {
-      "version": "0.1.0",
+      "version": "0.2.0",
       "components": {
         "agents": [
           {
@@ -102,7 +90,7 @@
       }
     },
     "asml-metrology": {
-      "version": "0.1.0",
+      "version": "0.2.0",
       "components": {
         "commands": [
           {
@@ -123,7 +111,7 @@
       }
     },
     "asml-test-diagnostics": {
-      "version": "0.1.0",
+      "version": "0.2.0",
       "components": {
         "commands": [
           {

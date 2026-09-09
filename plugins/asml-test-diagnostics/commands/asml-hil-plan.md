@@ -13,4 +13,4 @@ Emit:
 2. A `pytest` file that advances simulated `t_ns` (no `sleep`) and asserts safe state on injected faults.
 3. A JSON sidecar path for traces.
 
-Mark the plant as mock. Do not add a network or vendor-tool client.
+Run `python3 scripts/mock_hil.py --inject missed-heartbeat` from this plugin's root and attach the canned SIL trace. Mark the plant as mock. Do not add a network or vendor-tool client.

@@ -17,6 +17,11 @@ Python is the usual language for this work (calibration scripts, functional test
 | Skill | `asml-test-diagnostics` | HIL/SIL plans and diagnostic playbooks |
 | Skill | `asml-calibration` | Python calibration script conventions |
 | Command | `/asml-hil-plan` | Scaffold a HIL/SIL test plan for a named module |
+| Script | `scripts/mock_hil.py` | Run a canned SIL loop against a fake plant |
+
+```bash
+python3 scripts/mock_hil.py --module wafer-stage-x --inject missed-heartbeat
+```
 
 ## Related plugins
 

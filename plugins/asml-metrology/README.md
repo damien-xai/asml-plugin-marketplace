@@ -17,6 +17,11 @@ No live YieldStar or scanner connection. Wafer maps and correction recipes in th
 | Skill | `asml-metrology` | Overlay / CD / focus / EPE analysis and correction recipes |
 | Skill | `asml-wafer-maps` | Wafer-map layout, sampling, and plotting conventions |
 | Command | `/asml-overlay-report` | Build a mocked overlay/EPE report plus correction suggestion |
+| Script | `scripts/mock_overlay.py` | Print a canned wafer + scanner-correctable recipe |
+
+```bash
+python3 scripts/mock_overlay.py --layer M1
+```
 
 ## Languages
 

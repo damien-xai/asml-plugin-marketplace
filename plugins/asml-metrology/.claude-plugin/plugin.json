@@ -1,6 +1,6 @@
 {
   "name": "asml-metrology",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Mock overlay, CD, focus, and EPE metrology plugin for ASML scanners and YieldStar.",
   "author": {
     "name": "ASML"

@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "asml-computational-litho": {
-      "command": "python3",
-      "args": ["${GROK_PLUGIN_ROOT}/scripts/mock_mcp.py"]
-    }
-  }
-}
