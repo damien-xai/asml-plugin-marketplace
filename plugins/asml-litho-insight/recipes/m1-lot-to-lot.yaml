@@ -1,0 +1,12 @@
+loop: lot-to-lot
+layer: M1
+inputs: [overlay, epe]
+knobs: [Tx_nm, Ty_nm, R_urad, M_ppm]
+gain: 0.7
+max_step:
+  Tx_nm: 2.0
+  Ty_nm: 2.0
+  R_urad: 5.0
+  M_ppm: 1.0
+hold_on_quality_fail: true
+mock: true

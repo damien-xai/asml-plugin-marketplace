@@ -23,6 +23,7 @@ This plugin does **not** talk to a scanner. Types, cycle budgets, and module nam
 ```bash
 python3 scripts/mock_cycle.py
 python3 scripts/mock_cycle.py --inject-fault missed-heartbeat
+clang++ -std=c++17 -o /tmp/wafer_stage_x_test src/wafer_stage_x.cpp src/wafer_stage_x_test.cpp && /tmp/wafer_stage_x_test
 ```
 
 ## Languages

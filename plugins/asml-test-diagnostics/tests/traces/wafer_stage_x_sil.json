@@ -1,0 +1,76 @@
+{
+  "module": "wafer-stage-x",
+  "level": "SIL",
+  "cycle_ns": 1000000,
+  "inject": "missed-heartbeat",
+  "safe_state": true,
+  "fault": "missed_heartbeat",
+  "pass": true,
+  "traces": [
+    {
+      "t_ns": 1000000,
+      "cmd_nm": 0,
+      "est_nm": -2,
+      "out_nm": 0,
+      "heartbeat": 1,
+      "fault": null
+    },
+    {
+      "t_ns": 2000000,
+      "cmd_nm": 100,
+      "est_nm": 98,
+      "out_nm": 100,
+      "heartbeat": 1,
+      "fault": null
+    },
+    {
+      "t_ns": 3000000,
+      "cmd_nm": 200,
+      "est_nm": 198,
+      "out_nm": 200,
+      "heartbeat": 1,
+      "fault": null
+    },
+    {
+      "t_ns": 4000000,
+      "cmd_nm": 300,
+      "est_nm": 298,
+      "out_nm": 300,
+      "heartbeat": 1,
+      "fault": null
+    },
+    {
+      "t_ns": 5000000,
+      "cmd_nm": 400,
+      "est_nm": 398,
+      "out_nm": 0,
+      "heartbeat": 0,
+      "fault": "missed_heartbeat"
+    },
+    {
+      "t_ns": 6000000,
+      "cmd_nm": 500,
+      "est_nm": 498,
+      "out_nm": 0,
+      "heartbeat": 1,
+      "fault": "missed_heartbeat"
+    },
+    {
+      "t_ns": 7000000,
+      "cmd_nm": 600,
+      "est_nm": 598,
+      "out_nm": 0,
+      "heartbeat": 1,
+      "fault": "missed_heartbeat"
+    },
+    {
+      "t_ns": 8000000,
+      "cmd_nm": 700,
+      "est_nm": 698,
+      "out_nm": 0,
+      "heartbeat": 1,
+      "fault": "missed_heartbeat"
+    }
+  ],
+  "mock": true
+}

@@ -1,0 +1,11 @@
+# mock OPC job — not submitted anywhere
+layer: M1
+tool: NXE:3800E
+na: 0.33
+method: opc
+pixel_nm: 1.0
+mask3d: true
+resist: compact
+pw:
+  dose_pct: [-5, 0, 5]
+  focus_nm: [-40, 0, 40]

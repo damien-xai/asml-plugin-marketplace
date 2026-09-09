@@ -18,9 +18,12 @@ Python is the usual language for this work (calibration scripts, functional test
 | Skill | `asml-calibration` | Python calibration script conventions |
 | Command | `/asml-hil-plan` | Scaffold a HIL/SIL test plan for a named module |
 | Script | `scripts/mock_hil.py` | Run a canned SIL loop against a fake plant |
+| Script | `scripts/cal_stage_x.py` | Off-cycle stage-X cal: measure → fit → sidecar JSON |
 
 ```bash
 python3 scripts/mock_hil.py --module wafer-stage-x --inject missed-heartbeat
+python3 scripts/cal_stage_x.py                  # measure + fit only
+python3 scripts/cal_stage_x.py --apply          # also write the fake cal slot
 ```
 
 ## Related plugins

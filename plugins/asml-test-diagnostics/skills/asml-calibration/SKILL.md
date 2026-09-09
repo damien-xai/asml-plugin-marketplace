@@ -31,6 +31,13 @@ def main() -> None:
 
 `--apply` is opt-in. Default is measure + fit + write `cal_<axis>_<timestamp>.json`.
 
+The plugin ships `scripts/cal_stage_x.py` as the wafer-stage X mock. Run it from this plugin's root:
+
+```bash
+python3 scripts/cal_stage_x.py
+python3 scripts/cal_stage_x.py --apply
+```
+
 ## Rules
 
 - Off-cycle only. Do not call `actuate()` on the inner servo from a cal script.
