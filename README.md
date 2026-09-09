@@ -18,11 +18,14 @@ Six first-party plugins, all prefixed `asml-`, covering distinct coding use case
 | [`asml-fab-integration`](plugins/asml-fab-integration) | SECS/GEM, GEM300, and HSMS fab-host integration | deployment |
 | [`asml-test-diagnostics`](plugins/asml-test-diagnostics) | Calibration, diagnostics, and HIL/SIL test automation | development |
 
-Install from Grok Build with `/marketplace`, or:
+Add this marketplace, then install a plugin:
 
 ```bash
-grok plugin install asml-embedded-control --trust
+grok plugin marketplace add damien-xai/asml-plugin-marketplace
+grok plugin install asml-embedded-control@damien-xai/asml-plugin-marketplace --trust
 ```
+
+Or browse it in Grok Build with `/marketplace`.
 
 ## Repo layout
 
@@ -30,6 +33,7 @@ grok plugin install asml-embedded-control --trust
 |---|---|
 | `.grok-plugin/marketplace.json` | The catalog index — the source of truth |
 | `.grok-plugin/plugin-index.json` | Generated component catalog — never hand-edit |
+| `.claude-plugin/` | Claude-compatible copies of the catalog and per-plugin manifests |
 | `plugins/` | First-party ASML plugins vendored in this repo |
 | `external_plugins/` | Third-party plugins (none in this catalog) |
 
@@ -59,7 +63,7 @@ An optional `plugin.json` manifest adds metadata or overrides component paths.
 
 ```json
 {
-  "name": "asml-marketplace",
+  "name": "asml-plugin-marketplace",
   "description": "ASML plugin marketplace for Grok Build",
   "owner": { "name": "ASML" },
   "plugins": []

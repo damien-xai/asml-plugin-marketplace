@@ -27,6 +27,7 @@ import plugin_catalog
 
 INDEX_PATH = Path(".grok-plugin/plugin-index.json")
 CATALOG_PATH = Path(".grok-plugin/marketplace.json")
+CLAUDE_INDEX_PATH = Path(".claude-plugin/plugin-index.json")
 
 
 def resolve_local(repo_root: Path, path: str, name: str) -> Path:
@@ -113,21 +114,35 @@ def main() -> int:
         print(f"ERROR: {e}", file=sys.stderr)
         return 1
 
+    encoded = output.encode("utf-8")
     index_file = repo_root / INDEX_PATH
+    claude_index = repo_root / CLAUDE_INDEX_PATH
     if check:
         committed = index_file.read_bytes() if index_file.exists() else b""
-        if committed != output.encode("utf-8"):
+        if committed != encoded:
             print(
                 f"ERROR: {INDEX_PATH} is out of date. "
                 f"Run `python3 scripts/generate-plugin-index.py` and commit the result.",
                 file=sys.stderr,
             )
             return 1
+        if claude_index.parent.is_dir():
+            claude_committed = claude_index.read_bytes() if claude_index.exists() else b""
+            if claude_committed != encoded:
+                print(
+                    f"ERROR: {CLAUDE_INDEX_PATH} is out of date. "
+                    f"Run `python3 scripts/generate-plugin-index.py` and commit the result.",
+                    file=sys.stderr,
+                )
+                return 1
         print(f"Plugin index OK ({INDEX_PATH})")
         return 0
 
-    index_file.write_bytes(output.encode("utf-8"))
+    index_file.write_bytes(encoded)
     print(f"Wrote {INDEX_PATH}")
+    if claude_index.parent.is_dir():
+        claude_index.write_bytes(encoded)
+        print(f"Wrote {CLAUDE_INDEX_PATH}")
     return 0
 
 

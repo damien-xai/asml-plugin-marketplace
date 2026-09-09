@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "plugins": {
+    "asml-computational-litho": {
+      "version": "0.1.0",
+      "components": {
+        "commands": [
+          {
+            "name": "asml-opc-job",
+            "description": "Scaffold a mocked OPC, ILT, or SMO job spec for an ASML computational lithography layer."
+          }
+        ],
+        "mcpServers": [
+          {
+            "name": "asml-computational-litho",
+            "description": "stdio"
+          }
+        ],
+        "skills": [
+          {
+            "name": "asml-computational-litho",
+            "description": "OPC, inverse lithography (ILT), and source-mask optimization (SMO) job setup for ASML computational lithography. Use wh…"
+          },
+          {
+            "name": "asml-mask-model",
+            "description": "Choose mask-3D and resist-model fidelity for ASML computational lithography jobs. Use when setting mask3d, resist compa…"
+          }
+        ]
+      }
+    },
+    "asml-embedded-control": {
+      "version": "0.1.0",
+      "components": {
+        "agents": [
+          {
+            "name": "asml-rt-reviewer",
+            "description": "Review C++ diffs for ASML scanner real-time violations — allocation, locks, I/O, and missing setpoint clamps on the con…"
+          }
+        ],
+        "commands": [
+          {
+            "name": "asml-control-module",
+            "description": "Scaffold a TWINSCAN mechatronic control module (sense, estimate, control, actuate) in C++."
+          }
+        ],
+        "skills": [
+          {
+            "name": "asml-embedded-control",
+            "description": "Real-time C++ conventions for ASML TWINSCAN NXE/EXE machine control and mechatronics. Use when writing or reviewing sca…"
+          },
+          {
+            "name": "asml-motion-safety",
+            "description": "Watchdogs, interlocks, and fail-safe actuator commands for ASML scanner motion control. Use when adding a new actuator,…"
+          }
+        ]
+      }
+    },
+    "asml-fab-integration": {
+      "version": "0.1.0",
+      "components": {
+        "commands": [
+          {
+            "name": "asml-gem-session",
+            "description": "Scaffold a mocked SECS/GEM session with equipment status, recipe select, and S2F41 START."
+          }
+        ],
+        "mcpServers": [
+          {
+            "name": "asml-fab-host",
+            "description": "stdio"
+          }
+        ],
+        "skills": [
+          {
+            "name": "asml-fab-integration",
+            "description": "SECS/GEM, GEM300, and HSMS integration for ASML scanners talking to a fab host. Use when building recipe download, equi…"
+          }
+        ]
+      }
+    },
+    "asml-litho-insight": {
+      "version": "0.1.0",
+      "components": {
+        "agents": [
+          {
+            "name": "asml-apc-designer",
+            "description": "Propose an ASML holistic-lithography APC loop from a stated overlay, CD, focus, or EPE problem."
+          }
+        ],
+        "commands": [
+          {
+            "name": "asml-apc-recipe",
+            "description": "Scaffold a lot-to-lot holistic lithography APC recipe (knobs, gain, hold policy)."
+          }
+        ],
+        "skills": [
+          {
+            "name": "asml-litho-insight",
+            "description": "Holistic lithography APC in the Litho InSight style — lot-to-lot and wafer-to-wafer control from metrology feedback int…"
+          }
+        ]
+      }
+    },
+    "asml-metrology": {
+      "version": "0.1.0",
+      "components": {
+        "commands": [
+          {
+            "name": "asml-overlay-report",
+            "description": "Build a mocked overlay/EPE wafer-map report and a scanner-correctable recipe."
+          }
+        ],
+        "skills": [
+          {
+            "name": "asml-metrology",
+            "description": "Overlay, CD, focus, and edge-placement-error (EPE) analysis for ASML scanners and YieldStar. Use when computing residua…"
+          },
+          {
+            "name": "asml-wafer-maps",
+            "description": "Wafer-map layout, sampling, and plotting conventions for ASML metrology. Use when drawing an overlay/CD/focus/EPE map,…"
+          }
+        ]
+      }
+    },
+    "asml-test-diagnostics": {
+      "version": "0.1.0",
+      "components": {
+        "commands": [
+          {
+            "name": "asml-hil-plan",
+            "description": "Scaffold a SIL/HIL test plan and a pytest fake-plant test for an ASML scanner module."
+          }
+        ],
+        "skills": [
+          {
+            "name": "asml-calibration",
+            "description": "Python calibration-script conventions for ASML scanners (stage, overlay, focus, dose). Use when writing or reviewing of…"
+          },
+          {
+            "name": "asml-test-diagnostics",
+            "description": "Calibration, diagnostics, and HIL/SIL test automation for ASML scanners. Use when planning hardware-in-the-loop tests,…"
+          }
+        ]
+      }
+    }
+  }
+}
